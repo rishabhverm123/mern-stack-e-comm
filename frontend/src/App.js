@@ -2,6 +2,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import {Nav} from './component/Header/Nav'
+import { Footer } from './component/Footer/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       </Routes>
       </BrowserRouter>
       
+      <Footer />
        
     </div>
   );
