@@ -34,6 +34,28 @@ app.post('/api/user/register',async (req,res)=>{
     }
 })
 
+app.post('/api/user/login',async(req,res)=>{
+   
+   try{
+    let user_dto=await User.findOne({email:req.body.email});
+  
+    if(user_dto){
+        if(user_dto.password==req.body.password){
+            res.status(200).json({message:"User Login Successfully",user:user_dto}); 
+        }
+        else{
+            return res.status(400).json({message:"Invalid Credentials"})
+        }
+    }
+    else{
+        return res.status(400).json({message:"User not found"})
+    }
+   }
+   catch(err){
+    return res.status(400).json({ message: err.message })
+   }
+})
+
 
 app.get('/',(req,res)=>{
     res.send("Server is Started");

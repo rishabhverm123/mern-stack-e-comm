@@ -10,4 +10,12 @@ export class Userapi{
         });
     }
 
+    loginUser(body){
+        return instance.post(server_url+ROUTE_USER+'/login',body,{
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+    }
+
 }

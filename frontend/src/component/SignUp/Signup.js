@@ -40,16 +40,29 @@ export const Signup=()=>{
 
 
     return (
-        <div className="register-form">
-            
-            <div className="form" >
-            <h1>Register Yourself</h1>
-            <input type="text" className="form-control-input" value={name} onChange={(e)=>setName(e.target.value)} placeholder="Enter Name" />
-            <input type="text" className="form-control-input" value={email} onChange={(e)=>setEmail(e.target.value)}  placeholder="Enter Email" />
-            <input type="password" className="form-control-input" value={password}  onChange={(e)=>setPassword(e.target.value)} placeholder="Enter Password" />
-            <button className="btn" onClick={()=>register()}>Signup</button>
+        <div className='auth-page div_center'>
+        <div className='login_card'>
+            <div className='auth_header'>
+            <h3>Register Here</h3>
             </div>
+            <div className='auth_main'>
+            <label className='form_label' for="username">Name <span className='text_astric'>*</span></label>
+    <input type="text" className='form-control' value={name} onChange={(e)=>setName(e.target.value)} placeholder="Name" id="name" />
+    <label className='form_label' for="username">Email <span className='text_astric'>*</span></label>
+    <input type="text" className='form-control' value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Email" id="email" />
 
+    <label for="password" className='form_label'>Password</label>
+    <input type="password" className='form-control' value={password}  onChange={(e)=>setPassword(e.target.value)} placeholder="Password" id="password" />
+
+    <div className='auth_footer'>
+        <span className='text_link' onClick={()=>navigate('/login')}>Already have account? Login Here</span>
+        <button className='btn' onClick={()=>register()}>Register Here</button>
+    </div>
+            </div>
         </div>
+    </div>
+
+
+
     )
 }
