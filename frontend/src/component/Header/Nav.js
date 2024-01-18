@@ -1,20 +1,24 @@
 
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import './Nav.css'
+import { useEffect, useState } from 'react';
 export const Nav=()=>{
     const navigate=useNavigate();
+    const location = useLocation();
+    const[active, setActive]=useState(location.pathname)
     const logout=(e)=>{
         e.preventDefault();
         localStorage.clear();
         navigate('/login')
     }
+
     return(
         <div>
             <ul className='nav-ul'>
-                <li><Link to="/">Products</Link></li>
-                <li><Link to="/add">Add Product</Link></li>
-                <li><Link to="/update">Update Products</Link></li>
-                <li><Link to="/profile">Profile</Link></li>
+                <li className={active==='/'?'active':''}><Link onClick={()=>setActive('/')} to="/">Products</Link></li>
+                <li className={active==='/add'?'active':''}><Link onClick={()=>setActive('/add')} to="/add">Add Product</Link></li>
+                <li className={active==='/update'?'active':''}><Link onClick={()=>setActive('/update')} to="/update">Update Products</Link></li>
+                <li className={active==='/profile'?'active':''}><Link onClick={()=>setActive('/profile')} to="/profile">Profile</Link></li>
                 <li className='div_logout'>
                    <a href='!#' onClick={(e)=>logout(e)}>Logout</a> 
                 </li>
