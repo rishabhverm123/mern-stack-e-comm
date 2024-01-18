@@ -4,14 +4,15 @@ import './App.css';
 import {Nav} from './component/Header/Nav'
 import { Footer } from './component/Footer/Footer';
 import { Signup } from './component/SignUp/Signup';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="App">
 
       <Signup />
-
+      <ToastContainer />
       {/* <BrowserRouter>
       <Nav />
       <Routes>

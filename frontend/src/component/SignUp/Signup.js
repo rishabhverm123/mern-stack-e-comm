@@ -1,4 +1,8 @@
-import { useState } from "react"
+import { useState } from "react";
+
+import {Userapi} from './../../api/user-api'
+import { NotificationService } from "../../api/notification_service";
+import { NotificationType } from "../../helperclasses/enums";
 
 export const Signup=()=>{
 
@@ -6,10 +10,30 @@ export const Signup=()=>{
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
 
+    const service_user=new Userapi();
+
+    const service_notifier=new NotificationService();
     const register=()=>{
         console.log("name",name);
         console.log("email",email);
         console.log("password",password);
+
+        const body={
+            name:name,
+            email:email,
+            password:password,
+        }
+        service_user.registerUser(JSON.stringify(body)).then(
+            (response)=>{
+                debugger;
+            service_notifier.showNotification(NotificationType.Success,`User "${response.data.name}" has been registered successfully`)
+            }).catch((error) => {
+                debugger;
+                error=error.response
+            service_notifier.showNotification(NotificationType.Error,error.data.message)
+
+          
+      });
     }
 
 
