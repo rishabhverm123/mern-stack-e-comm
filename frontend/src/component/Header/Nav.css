@@ -6,7 +6,7 @@
 .nav-ul{
     padding: 5px;
     margin:0;
-    background-color: skyblue;
+    background-color: var(--background);;
 }
 .nav-ul li a{
    color:#fff;

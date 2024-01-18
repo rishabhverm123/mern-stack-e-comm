@@ -3,7 +3,7 @@
     bottom: 0;
     text-align: center;
     width:100%;
-    background-color: skyblue;
+    background-color: var(--background);;
     padding: 5px;
 
 }
