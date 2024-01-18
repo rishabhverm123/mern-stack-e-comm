@@ -3,6 +3,7 @@ import { useState } from "react";
 import {Userapi} from './../../api/user-api'
 import { NotificationService } from "../../api/notification_service";
 import { NotificationType } from "../../helperclasses/enums";
+import { useNavigate } from "react-router-dom";
 
 export const Signup=()=>{
 
@@ -10,13 +11,12 @@ export const Signup=()=>{
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
 
+    const navigate=useNavigate();
+
     const service_user=new Userapi();
 
     const service_notifier=new NotificationService();
     const register=()=>{
-        console.log("name",name);
-        console.log("email",email);
-        console.log("password",password);
 
         const body={
             name:name,
@@ -25,9 +25,11 @@ export const Signup=()=>{
         }
         service_user.registerUser(JSON.stringify(body)).then(
             (response)=>{
-                debugger;
-            service_notifier.showNotification(NotificationType.Success,`User "${response.data.name}" has been registered successfully`)
-            }).catch((error) => {
+            const user=response.data;
+            service_notifier.showNotification(NotificationType.Success,`User "${user.name}" has been registered successfully`)
+            localStorage.setItem('user_id',user._id);
+            navigate('/');
+        }).catch((error) => {
                 debugger;
                 error=error.response
             service_notifier.showNotification(NotificationType.Error,error.data.message)
