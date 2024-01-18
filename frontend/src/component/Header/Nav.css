@@ -21,7 +21,5 @@
 }
 
 .div_logout{
-    position: absolute;
-    right: 0;
-    margin-right: 5px;
+    float: right;
 }
