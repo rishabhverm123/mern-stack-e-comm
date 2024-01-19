@@ -14,5 +14,10 @@ export class Productapi{
         return instance.get(server_url+ROUTE_PRODUCT+'/getAllProducts');
     }
 
+    deleteProduct(id){
+        return instance.delete(server_url+ROUTE_PRODUCT+`/delete/${id}`);
+    }
+
+
 
 }

@@ -12,7 +12,7 @@ export const Protected=()=>{
             <div className="app_header">
                 <Nav />
             </div>
-            <div className="app_main">
+            <div className="app_main" style={{height:'80%'}}>
                 <Outlet />
             </div>
 

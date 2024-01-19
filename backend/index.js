@@ -76,8 +76,22 @@ app.post('/api/product/add',async (req,res)=>{
 
 app.get('/api/product/getAllProducts',async (req,res)=>{
     try{
-        const products=await Product.find({});
+        const products=await Product.find();
         res.send(products);
+    }
+    catch(err){
+        return res.status(400).json({message:err.message});
+    }
+})
+app.delete('/api/product/delete/:id',async (req,res)=>{
+    try{
+        const product=await Product.find({_id:req.params.id});
+        if(product){
+          await Product.deleteOne({_id:req.params.id}) 
+        //    const products=await Product.find({});
+           res.send({message:'Product is deleted'}) 
+        }
+        res.status(400).json({message:'Product is not found in database'});
     }
     catch(err){
         return res.status(400).json({message:err.message});

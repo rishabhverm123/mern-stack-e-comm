@@ -5,6 +5,7 @@ import { NotificationService } from '../../api/notification_service';
 import { NotificationType } from '../../helperclasses/enums';
 import { Appglobal } from '../../api/appglobal';
 import { Productapi } from '../../api/Product-api';
+import { useNavigate } from 'react-router-dom';
 export const AddProduct=()=>{
 
     const initialValues = {
@@ -14,6 +15,7 @@ export const AddProduct=()=>{
         description: "",
         image: "",
       };
+      const navigate=useNavigate();
       const [values, setValues] = useState(initialValues);
       const service_notifier=new NotificationService();
       const service_product=new Productapi();
@@ -45,6 +47,7 @@ export const AddProduct=()=>{
                 (response)=>{
             service_notifier.showNotification(NotificationType.Success,`New Product Added Successfully`);
             setValues(initialValues);
+            navigate('/');
                 }
             ).catch((error)=>{
                 error=error.response;
