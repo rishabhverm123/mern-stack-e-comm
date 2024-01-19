@@ -87,9 +87,9 @@ app.delete('/api/product/delete/:id',async (req,res)=>{
     try{
         const product=await Product.find({_id:req.params.id});
         if(product){
-          await Product.deleteOne({_id:req.params.id}) 
+          await Product.findByIdAndDelete({_id:req.params.id}) 
         //    const products=await Product.find({});
-           res.send({message:'Product is deleted'}) 
+           res.send({message:'Product is deleted'})  
         }
         res.status(400).json({message:'Product is not found in database'});
     }

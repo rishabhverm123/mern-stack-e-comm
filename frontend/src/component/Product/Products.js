@@ -16,7 +16,7 @@ export const Products=()=>{
             (response)=>{
             debugger;
             service_notifier.showNotification(NotificationType.Success,"Product Deleted Successfully")
-            getAllProduct();
+            // getAllProduct();
             }
         ).catch((error)=>{
             error=error.response;
