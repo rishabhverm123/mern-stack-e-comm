@@ -5,7 +5,7 @@
 :root {
     --background: skyblue;
     --text-active:#1aace7;
-    --text-color: #ffffff;
+    --custom-text-color: #ffffff;
   }
 
 .form{
@@ -19,7 +19,7 @@
 
 .form-control-input{
     padding: 7px;
-    border: 2px solid var(--background);;
+    border: 2px solid var(--background);
     border-radius: 5px;
     margin:25px;
     width:300px;
@@ -123,14 +123,95 @@ button.btn {
     padding: 10px;
     width: 150px;
     background-color: var(--background);
-    color: var(--text-color);
+    color: var(--custom-text-color);
     text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
     line-height: 20px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
 }
 button.btn:hover{
-    background-color: var(--background);
+    background-color: var(--custom-text-color);
+    border-color: var(--background);
+    border-width: 2px;
     opacity: .8;
     transform: translateY(-1px);
+}
+
+.product_add{
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid var(--text-active);
+    border-radius: 20px;
+
+}
+
+.product_header{
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background-color: #D0D5DD;
+}
+
+.text_format{
+    font-weight: 500;
+    font-style: normal;
+    line-height: 2rem;
+    font-size: 1.3rem;
+}
+
+.product_main{
+    margin-top: 10px;
+    padding: 10px;
+    height: 23rem;
+    overflow: auto;
+}
+
+.form_lables{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+}
+.text_label{
+    font-size: 16px;
+font-weight: 500; 
+width: 10%;
+margin:10px;
+}
+textarea {
+    background: #FFFFFF;
+    border: 1px solid #D0D5DD !important;
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    border-radius: 0.5rem !important;
+    width: 100%;
+    height: 150px !important;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    font-size: 16px !important;
+    resize: none !important;
+  }
+  .product_footer{
+    margin: 10px;
+    text-align: center;
+    /* width:100% */
+  }
+
+  .p-dropdown.p-component{
+    width: 100% !important;
+  }
+  .p-inputtext {
+    padding: 0.3rem 0.75rem !important;
+    height: 2rem !important;
+  }
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    color: var(--custom-text-color) !important;
+    background: var(--background) !important;
+}
+.btn-icon{
+    margin-right: 10px;
+    font-weight: 600 !important;
+    font-size: 1rem;
 }

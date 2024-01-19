@@ -1,8 +1,10 @@
 import './Footer.css';
+import logo from './../../assets/img/Logo.png'
 export const Footer=()=>{
     return (
     <div className="footer">
-    <h3>Footer</h3>
+            <span className='footer-logo'><img src={logo} style={{width:'100px' }} alt='logo'/></span>
+        
     </div>
 
     )

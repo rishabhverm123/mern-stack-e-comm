@@ -23,3 +23,10 @@
 .div_logout{
     float: right;
 }
+
+.logo{
+    float: left;
+    margin: 5px;
+    border-radius: 12px;
+    cursor: pointer;
+}

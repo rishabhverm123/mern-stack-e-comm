@@ -1,6 +1,8 @@
 const express=require('express');
 const User=require('./db/User');
+const Product=require('./db/Product');
 const validate=require('./db/User');
+const validate_product=require('./db/Product');
 const cors=require("cors");
 
 // const router = express.Router();
@@ -54,6 +56,32 @@ app.post('/api/user/login',async(req,res)=>{
    catch(err){
     return res.status(400).json({ message: err.message })
    }
+})
+
+app.post('/api/product/add',async (req,res)=>{
+    const { error } = validate(req.body)
+    if (error) {
+        return res.status(400).send(error.details[0].message)
+    }
+
+    try{        
+        const product = new Product(req.body);
+        let result=await product.save();
+        res.send(result);
+    }
+    catch(err){
+        return res.status(400).json({ message: err.message })
+    }
+})
+
+app.get('/api/product/getAllProducts',async (req,res)=>{
+    try{
+        const products=await Product.find({});
+        res.send(products);
+    }
+    catch(err){
+        return res.status(400).json({message:err.message});
+    }
 })
 
 
