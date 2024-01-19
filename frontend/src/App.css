@@ -306,4 +306,6 @@ textarea {
     justify-content: center;
     vertical-align: middle;
     align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
   }
