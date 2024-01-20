@@ -85,13 +85,13 @@ app.get('/api/product/getAllProducts',async (req,res)=>{
 })
 app.delete('/api/product/delete/:id',async (req,res)=>{
     try{
-        const product=await Product.find({_id:req.params.id});
-        if(product){
+        
+        
           await Product.findByIdAndDelete({_id:req.params.id}) 
         //    const products=await Product.find({});
            res.send({message:'Product is deleted'})  
-        }
-        res.status(400).json({message:'Product is not found in database'});
+         
+        // res.status(400).json({message:'Product is not found in database'});
     }
     catch(err){
         return res.status(400).json({message:err.message});
