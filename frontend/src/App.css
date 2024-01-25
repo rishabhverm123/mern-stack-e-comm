@@ -309,3 +309,75 @@ textarea {
     font-size: 2rem;
     font-weight: 600;
   }
+
+/*******************css for common tab******************/
+.tab_panel {
+    margin-bottom: 1rem;
+  }
+  
+  .tab_panel .nav-tabs {
+    border-bottom: 1px solid rgba(0, 0, 0, .1) !important;
+    margin-bottom: 1rem;
+    padding-left: 0rem;
+    position: relative;
+    right: 0;
+    width: calc(100%);
+    display: flex;
+    margin-bottom: 1rem;
+    list-style: none;
+  }
+  
+  .tab_panel .nav-tabs li.nav-item {
+    display: flex;
+    padding: 0rem;
+    flex-basis: auto;
+  }
+  
+  .tab_panel .nav-tabs li.nav-item {
+    margin-right: 1.5rem;
+  }
+  
+  .tab_panel .nav-tabs li.nav-item:last-child {
+    margin-right: 0rem !important;
+  }
+  
+  .tab_panel .nav-tabs .nav-link {
+    border: 0;
+    border-bottom: 0.1875rem solid transparent;
+    /* padding: 0.5rem 0rem;
+    padding-top: 0rem !important; */
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.375rem;
+    color: #667085;
+    padding: 0.3rem 0.6rem;
+  }
+  
+   
+  .tab_panel .nav-tabs .nav-link.active {
+    border-color: var(--text-active) !important;
+    color: var(--text-active) !important;
+    background-color: transparent !important;
+  }
+  
+  .tab_panel .nav-tabs .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.07) !important;
+    
+  }
+  
+  .tab_panel .nav-tabs .nav-link:focus,
+  .tab_panel .nav-tabs .nav-link:hover {
+    border-color: transparent;
+  }
+  
+  .tab_panel .nav_item_right {
+    margin-left: auto;
+    position: relative;
+  }
+  
+  .tab_panel .nav_item_right .item_content {
+    position: absolute;
+    top: -0.3rem;
+    right: 0;
+  }
+  
